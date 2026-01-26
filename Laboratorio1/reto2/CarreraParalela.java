@@ -4,17 +4,37 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class CarreraParalela {
-    public static int elnum;
-    public static void main(String[] args) {
+    public void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String numeros = scanner.nextLine();
-
-        elnum = maxnum(numeros);
+        String numbers = scanner.nextLine();
+        
+        int elnum = maxnum(numbers);
+        
+        List<Integer> array = convertToList(numbers);
+        int small = smallNumber(array);
+        int lenNumbers = array.size();
+        
         System.out.println(elnum);
+        System.out.println(small);
+        System.out.println(lenNumbers);
     }
 
+    public List<Integer> convertToList(String numbers) {
+        return Arrays.stream(numbers.split(" "))
+                     .map(Integer::parseInt)
+                     .toList();
+    }
+
+    public int smallNumber(List<Integer> array) {
+        return array.stream()
+                      .min(Integer::compare)
+                      .get();
+    }
+
+    public static int elUnum;
+
     public static int maxnum(String numeros){
-        List<Integer> lista = Arrays.stream(numeros.split(" ")) // 1. Divide el string
+        List<Integer> lista = Arrays.stream(numeros.split(" ")) 
                                     .map( x -> Integer.parseInt(x))
                                     .collect(Collectors.toList());
 
