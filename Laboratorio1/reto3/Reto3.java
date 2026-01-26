@@ -1,17 +1,17 @@
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-public class R3 {
 
+public class R3 {
     public static void main(String[] args) {
 
-        String mensaje = "hola";
-        System.out.println(Elbuilder(mensaje));
-        System.out.println(invertirMensaje(mensaje));
+        String menssage = "hola";
+        System.out.println(builder(menssage));
+        System.out.println(reverseMenssage(menssage));
 
 
     }
-    public static String Elbuilder(String str){
+    public static String builder(String str){
         StringBuilder sb = new StringBuilder();
         sb.append(str + " ");
         sb.append(str + " ");
@@ -20,8 +20,8 @@ public class R3 {
         return sb.toString();
     }
 
-    public static String invertirMensaje(String mensaje) {
-        Function<String, String> invertir = s -> {
+    public static String reverseMenssage(String menssage) {
+        Function<String, String> invest = s -> {
             List<Character> chars = s.chars()
                     .mapToObj(c -> (char) c)
                     .collect(Collectors.toList());
@@ -33,8 +33,6 @@ public class R3 {
                     .collect(Collectors.joining());
         };
 
-        return invertir.apply(mensaje);
+        return invest.apply(menssage);
     }
-
-
 }
