@@ -18,7 +18,10 @@ public class CarreraParalela {
         System.out.println(elnum);
         System.out.println(small);
         System.out.println(lenNumbers);
-	
+
+        Resultado finalRes = finalResult(numbers);
+        System.out.println(finalRes.toString());
+
     }
 
 
@@ -65,38 +68,38 @@ public class CarreraParalela {
 
     }
 
+
+    public static Resultado finalResult(String numeros){
+
         List<Integer> lista = Arrays.stream(numeros.split(" "))
+                                    .map(x -> Integer.parseInt(x))
+                                    .collect(Collectors.toList());
+        int max = lista.stream().max(Integer::compareTo).orElse(0);
+
+        int min =lista.stream().min(Integer::compareTo).get();
 
         Resultado resultix = new Resultado(max, min, lista.size());
         return resultix;
 
 
+
     }
 
+}
 
 class Resultado {
+    int max;
     int min;
     int cantidad;
 
+    public Resultado(int max, int min, int cantidad) {
         this.max = max;
         this.min = min;
+        this.cantidad = cantidad;
     }
 
     @Override
     public String toString() {
+        return "FINAL -> Máximo: " + max + ", Mínimo: " + min + ", Total datos: " + cantidad;
     }
-}        return "FINAL -> Máximo: " + max + ", Mínimo: " + min + ", Total datos: " + cantidad;
-        this.cantidad = cantidad;
-    public Resultado(int max, int min, int cantidad) {
-    int max;
 }
-
-
-
-        int min =lista.stream().min(Integer::compareTo).get();
-        int max = lista.stream().max(Integer::compareTo).orElse(0);
-                                    .map(x -> Integer.parseInt(x))
-                                    .collect(Collectors.toList());
-
-
-
