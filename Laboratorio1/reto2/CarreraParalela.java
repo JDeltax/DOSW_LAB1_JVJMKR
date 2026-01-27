@@ -75,6 +75,11 @@ class Result {
         return (max % 2 == 0) ? "yes" : "no";
     }
 
+    public String isPair(int cantidad){
+        return (max % 2 == 0) ? "yes" : "no";
+    }
+
+
     public String isOdd (int cantidad) {
         return (cantidad % 2 != 0) ? "yes" : "no";
     }
@@ -82,6 +87,7 @@ class Result {
     @Override
     public String toString() {
         return "Max: " + max + ", Min: " + min + ", total data: " + cantidad + " If divisor of 2: " +
-        isDivisor(max) + " is odd: " + isOdd(cantidad);
+        isDivisor(max) + " is odd: " + isOdd(cantidad) + " is pair: " + isPair(cantidad);
+
     }
 }
