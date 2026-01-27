@@ -8,42 +8,19 @@ public class CarreraParalela {
     public void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        String numbers = scanner.nextLine();
-        int elnum = maxnum(numbers);
-        List<Integer> array = convertToList(numbers);
-        int small = smallNumber(array);
-        int lenNumbers = array.size();
-        System.out.println(elnum);
-        System.out.println(small);
-        System.out.println(lenNumbers);
 
-        Result resultFinal = finalResult(numbers);
-        System.out.println(resultFinal.toString());
+        System.out.println("Enter first line of numbers:");
+        Result numbers1 = finalResult(scanner.nextLine());
+
+        System.out.println("Enter second line of numbers:");
+        Result numbers2 = finalResult(scanner.nextLine());
+
+        System.out.println("First line results: " + numbers1.toString());
+        System.out.println("Second line results: " + numbers2.toString());
+
 
     }
 
-    public List<Integer> convertToList(String numbers) {
-        return Arrays.stream(numbers.split(" "))
-                     .map(Integer::parseInt)
-                     .toList();
-    }
-
-    public int smallNumber(List<Integer> array) {
-        return array.stream()
-                      .min(Integer::compare)
-                      .get();
-    }
-
-    public static int elUnum;
-
-    public static int maxnum(String numeros){
-        List<Integer> lista = Arrays.stream(numeros.split(" "))
-                                    .map( x -> Integer.parseInt(x))
-                                    .collect(Collectors.toList());
-
-        int max = lista.stream().max(Integer::compareTo).orElse(0);
-        return max;
-    }
 
     public static Result finalResult(String numbers){
         List<Integer> listNumbers = Arrays.stream(numbers.split(" "))
@@ -53,8 +30,7 @@ public class CarreraParalela {
         int min = listNumbers.stream().min(Integer::compareTo).get();
         
         Result resultix = new Result(max, min, listNumbers.size());
-		String maxIsMultipleOf2 = (max%2==0) ? "yes" : "No";
-		System.out.println(maxIsMultipleOf2);
+
         return resultix;
     }
 
@@ -71,23 +47,15 @@ class Result {
         this.cantidad = cantidad;
     }
 
-    public String isDivisor(int max) {
-        return (max % 2 == 0) ? "yes" : "no";
-    }
+    String maxIsMultipleOf2 = (max%2==0) ? "yes" : "No";
+    String maxIsDivisorOf2 = (max != 0 && 2 % max == 0) ? "Yes" : "No";
 
-    public String isPair(int cantidad){
-        return (max % 2 == 0) ? "yes" : "no";
-    }
-
-
-    public String isOdd (int cantidad) {
-        return (cantidad % 2 != 0) ? "yes" : "no";
-    }
-
+    String isPair = (cantidad % 2 == 0) ? "yes" : "No";
+    String isOdd = (cantidad % 2 != 0) ? "yes" : "No";
     @Override
     public String toString() {
-        return "Max: " + max + ", Min: " + min + ", total data: " + cantidad + " If divisor of 2: " +
-        isDivisor(max) + " is odd: " + isOdd(cantidad) + " is pair: " + isPair(cantidad);
+        return "Max: " + max + ", Min: " + min + ", total data: " + cantidad + " Is divisor of 2: " +
+        maxIsDivisorOf2 + " Is multiple of 2: " + maxIsMultipleOf2 + " is odd: " + isOdd + " is pair: " + isPair;
 
     }
 }
