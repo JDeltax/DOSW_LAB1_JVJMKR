@@ -74,10 +74,13 @@ class Result {
     public String isDivisor(int max) {
         return (max % 2 == 0) ? "yes" : "no";
     }
-
+    
+    public String isPair(int cantidad){
+        return (max % 2 == 0) ? "yes" : "no";
+    }
     @Override
     public String toString() {
         return "Max: " + max + ", Min: " + min + ", total data: " + cantidad + " If divisor of 2: " +
-        isDivisor(max);
+        isDivisor(max) + "If pair: " + isPair(cantidad);
     }
 }
