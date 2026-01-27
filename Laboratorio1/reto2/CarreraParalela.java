@@ -4,8 +4,8 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class CarreraParalela {
-  
-    public void main(String[] args) {
+
+    public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -15,25 +15,20 @@ public class CarreraParalela {
         System.out.println("Enter second line of numbers:");
         Result numbers2 = finalResult(scanner.nextLine());
 
-        System.out.println("First line results: " + numbers1.toString());
-        System.out.println("Second line results: " + numbers2.toString());
-
-
+        System.out.println("First line results: " + numbers1);
+        System.out.println("Second line results: " + numbers2);
     }
 
-
-    public static Result finalResult(String numbers){
+    public static Result finalResult(String numbers) {
         List<Integer> listNumbers = Arrays.stream(numbers.split(" "))
-                                    .map(x -> Integer.parseInt(x))
-                                    .collect(Collectors.toList());
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
+
         int max = listNumbers.stream().max(Integer::compareTo).orElse(0);
-        int min = listNumbers.stream().min(Integer::compareTo).get();
-        
-        Result resultix = new Result(max, min, listNumbers.size());
+        int min = listNumbers.stream().min(Integer::compareTo).orElse(0);
 
-        return resultix;
+        return new Result(max, min, listNumbers.size());
     }
-
 }
 
 class Result {
@@ -41,21 +36,30 @@ class Result {
     int min;
     int cantidad;
 
+    String maxIsMultipleOf2;
+    String maxIsDivisorOf2;
+    String isPair;
+    String isOdd;
+
     public Result(int max, int min, int cantidad) {
         this.max = max;
         this.min = min;
         this.cantidad = cantidad;
+
+        this.maxIsMultipleOf2 = (max % 2 == 0) ? "Yes" : "No";
+        this.maxIsDivisorOf2 = (max != 0 && 2 % max == 0) ? "Yes" : "No";
+        this.isPair = (cantidad % 2 == 0) ? "Yes" : "No";
+        this.isOdd = (cantidad % 2 != 0) ? "Yes" : "No";
     }
 
-    String maxIsMultipleOf2 = (max%2==0) ? "yes" : "No";
-    String maxIsDivisorOf2 = (max != 0 && 2 % max == 0) ? "Yes" : "No";
-
-    String isPair = (cantidad % 2 == 0) ? "yes" : "No";
-    String isOdd = (cantidad % 2 != 0) ? "yes" : "No";
     @Override
     public String toString() {
-        return "Max: " + max + ", Min: " + min + ", total data: " + cantidad + " Is divisor of 2: " +
-        maxIsDivisorOf2 + " Is multiple of 2: " + maxIsMultipleOf2 + " is odd: " + isOdd + " is pair: " + isPair;
-
+        return "Max: " + max +
+               ", Min: " + min +
+               ", Total data: " + cantidad +
+               ", Max is divisor of 2: " + maxIsDivisorOf2 +
+               ", Max is multiple of 2: " + maxIsMultipleOf2 +
+               ", Is odd: " + isOdd;
     }
 }
+
