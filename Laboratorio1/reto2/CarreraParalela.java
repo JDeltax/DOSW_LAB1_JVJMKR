@@ -53,8 +53,8 @@ public class CarreraParalela {
         int min = listNumbers.stream().min(Integer::compareTo).get();
         
         Result resultix = new Result(max, min, listNumbers.size());
-	String maxIsMultipleOf2 = (max%2==0) ? "yes" : "No";
-	System.out.println(maxIsMultipleOf2);
+		String maxIsMultipleOf2 = (max%2==0) ? "yes" : "No";
+		System.out.println(maxIsMultipleOf2);
         return resultix;
     }
 
