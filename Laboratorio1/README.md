@@ -9,6 +9,37 @@
 
 ## Retos Completados
 
+### RETO 1
+**EVIDENCIA**
+![captura](Imagenes/reto1.png)
+Descripción:
+
+Se creó la clase estudiante la cual almacenaría datos importantes como nombre, semestre y correo.
+Luego de eso hacemos la funcionalidad en la parte main, creamos los estudiantes  y a su vez añadirlos a una lista
+la cual va a pasar por el proceso del stream para obtener los datos mediante el colector.
+
+### RETO 2
+![captura](Imagenes/reto2-1.png)
+![captura](Imagenes/reto2-2.png)
+![captura](Imagenes/reto2-3.png)
+![captura](Imagenes/reto2-4.png)
+
+Descripción:
+Se siguió el paso a paso dado por el lab donde primero es hacer los cambios y llegar a ese conflicto
+(reto2-1, reto2-2) donde se procede a ajustar y corregir, decidiendo que cambios guardar o actualizar (reto2-3).
+Ya para la prueba final se hacen los cambios por parte y parte, luego realizamos los commits y respectivo push, además se revisa
+el log como evidencia (reto 2-4)
+
+
+### RETO 3
+![captura](Imagenes/reto3-1.png)
+![captura](Imagenes/reto3-2.png)
+![captura](Imagenes/reto3-3.png)
+Descripción: 
+Se vuelve a la dinámica de arreglar un conflicto de commits al realizar la unión de los respectivos ejercicios, esto
+al tener lineas alteradas que hizo el otro arroja el conflict al intentar hacer merge (reto3-1).
+Pasamos a resolver el problema del merge decidiendo que cambios conservar (reto3-2) y finalmente se muestra la prueba de 
+que hicieron las correcciones (reto3-3)
 
 
 
