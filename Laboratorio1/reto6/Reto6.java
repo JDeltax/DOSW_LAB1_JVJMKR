@@ -1,74 +1,70 @@
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
-public class Reto4 {
+public class Reto6 {
 
     public static void main(String[] args) {
-        
         Scanner scanner = new Scanner(System.in);
-
         String input = scanner.nextLine();
         String command = extractCommand(input);
 
-        Map<String, Runnable> commandMap = createCommandMap();
-        executeWithMap(command, commandMap);
-        demoAllCommands(commandMap);
-    }
-    
-    public static String extractCommand(String input) {
-        return input.substring(
-            input.indexOf("\"") + 1,
-            input.lastIndexOf("\"")
-        );
+        executeCommand(command);
     }
 
-    public static void executeWithSwitch(String command) {
-        switch (command.toUpperCase()) {
+    public static void executeCommand(String command) {
+        Map<String, Runnable> actions = createActions();
+        switch (command) {
+            case "SALUDAR":
+            case "DESPEDIR":
+            case "CANTAR":
+            case "DANZAR":
             case "BROMEAR":
-                System.out.println("La máquina se ríe: ¿por qué la RAM rompió con la CPU? Porque necesitaba espacio");
-                break;
             case "GRITAR":
-                System.out.println("La máquina grita: ¡¡¡ALERTA DE STACK OVERFLOW!!!");
-                break;
             case "SUSURRAR":
-                System.out.println("La máquina susurra: Shhh... los bugs están dormidos");
-                break;
             case "ANALIZAR":
-                System.out.println("La máquina procesa: Analizando datos... resultado: ¡Eres increíble programando!");
+                actions.get(command).run();
                 break;
             default:
-                System.out.println("Comando no reconocido");
+                System.out.println("Comando no reconocido.");
         }
     }
 
-    public static Map<String, Runnable> createCommandMap() {
-
-        Map<String, Runnable> commands = new HashMap<>();
-
-        commands.put("BROMEAR",  () -> executeWithSwitch("BROMEAR"));
-        commands.put("GRITAR",   () -> executeWithSwitch("GRITAR"));
-        commands.put("SUSURRAR", () -> executeWithSwitch("SUSURRAR"));
-        commands.put("ANALIZAR", () -> executeWithSwitch("ANALIZAR"));
-
-        return commands;
-    }
-
-    public static void executeWithMap(
-            String command,
-            Map<String, Runnable> commands) {
-
-        Runnable action = commands.get(command.toUpperCase());
-
-        if (action != null) {
-            action.run(); 
-        } else {
-            System.out.println("Comando no reconocido");
+    private static String extractCommand(String input) {
+        int start = input.indexOf("\"");
+        int end = input.lastIndexOf("\"");
+        if (start == -1 || end == -1 || start == end) {
+            return "";
         }
+        return input.substring(start + 1, end);
     }
 
-    public static void demoAllCommands(Map<String, Runnable> commands) {
-        commands.forEach((cmd, action) -> {
-            System.out.print(cmd + " -> ");
-            action.run();
-        });
+    private static Map<String, Runnable> createActions() {
+        Map<String, Runnable> actions = new HashMap<>();
+        actions.put("SALUDAR", () ->
+                System.out.println("La máquina dice: ¡Saludos, viajero del tiempo y del código!")
+        );
+        actions.put("DESPEDIR", () ->
+                System.out.println("La máquina dice: Que los bits te acompañen, hasta la próxima misión.")
+        );
+        actions.put("CANTAR", () ->
+                System.out.println("La máquina canta: 01010101")
+        );
+        actions.put("DANZAR", () ->
+                System.out.println("La máquina gira y emite chispas: Girando en modo fiesta.")
+        );
+        actions.put("BROMEAR", () ->
+                System.out.println("La máquina se ríe: ¿por qué la RAM rompió con la CPU? Porque necesitaba espacio")
+        );
+        actions.put("GRITAR", () ->
+                System.out.println("La máquina grita: ¡¡¡ALERTA DE STACK OVERFLOW!!!")
+        );
+        actions.put("SUSURRAR", () ->
+                System.out.println("La máquina susurra: Shhh... los bugs están dormidos")
+        );
+        actions.put("ANALIZAR", () ->
+                System.out.println("La máquina procesa: Analizando datos... resultado: ¡Eres increíble programando!")
+        );
+        return actions;
     }
 }
