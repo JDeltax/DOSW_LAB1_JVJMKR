@@ -123,7 +123,8 @@ los aplica al directorio de trabajo actual, eliminándolos de la pila.
 
 ### 6. Diferencia entre HashMap y HashTable
 
-**Imagen de la tabla**
+
+![captura](Imagenes/tabla.png)
 
 ### 7. Ventajas de Collectors.toMap() sobre bucle tradicional
 
