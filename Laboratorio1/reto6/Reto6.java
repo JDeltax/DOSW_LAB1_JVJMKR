@@ -8,6 +8,7 @@ public class Reto6 {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         String command = extractCommand(input);
+
         executeCommand(command);
     }
 
@@ -18,6 +19,10 @@ public class Reto6 {
             case "DESPEDIR":
             case "CANTAR":
             case "DANZAR":
+            case "BROMEAR":
+            case "GRITAR":
+            case "SUSURRAR":
+            case "ANALIZAR":
                 actions.get(command).run();
                 break;
             default:
@@ -47,6 +52,18 @@ public class Reto6 {
         );
         actions.put("DANZAR", () ->
                 System.out.println("La máquina gira y emite chispas: Girando en modo fiesta.")
+        );
+        actions.put("BROMEAR", () ->
+                System.out.println("La máquina se ríe: ¿por qué la RAM rompió con la CPU? Porque necesitaba espacio")
+        );
+        actions.put("GRITAR", () ->
+                System.out.println("La máquina grita: ¡¡¡ALERTA DE STACK OVERFLOW!!!")
+        );
+        actions.put("SUSURRAR", () ->
+                System.out.println("La máquina susurra: Shhh... los bugs están dormidos")
+        );
+        actions.put("ANALIZAR", () ->
+                System.out.println("La máquina procesa: Analizando datos... resultado: ¡Eres increíble programando!")
         );
         return actions;
     }
