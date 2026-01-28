@@ -41,8 +41,22 @@ al tener lineas alteradas que hizo el otro arroja el conflict al intentar hacer 
 Pasamos a resolver el problema del merge decidiendo que cambios conservar (reto3-2) y finalmente se muestra la prueba de 
 que hicieron las correcciones (reto3-3)
 
+### RETO 4
+![captura](Imagenes/reto4-1.png)
+![captura](Imagenes/reto4-2.png)
+Descripción:
+Para este reto nuevamente se maneja una dinámica de trabajo colaborativo donde se asigna las tareas de creacion de un hashtable al
+estudiante A y un hashMap al etudiante B, pero al hacer el merge vemos que tenemos problemas en el mismo (reto 4-1 que se deben solucionar
+y al final hacer los respectivos commits(imagen reto4-2)
 
 
+### RETO 5
+Este ejercicio es similar al reto 4 pero manejando estructuras de HashMap y TreeMap, se hace uno de los commits y luego el merge.
+Este merge dará problemas ya que sobreescribe lo del otro compañero:
+![captura](Imagenes/reto5-1.png)
+En esta fase nos reunimos el equipo para combinar la solucion y subirla al repositorio, aportando cada uno con un fragmento y fomentando
+el trabajo en equipo
+![captura](Imagenes/reto5-2.png)
 ---
 
 
