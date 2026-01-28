@@ -57,11 +57,20 @@ Este merge dará problemas ya que sobreescribe lo del otro compañero:
 En esta fase nos reunimos el equipo para combinar la solucion y subirla al repositorio, aportando cada uno con un fragmento y fomentando
 el trabajo en equipo
 ![captura](Imagenes/reto5-2.png)
+
+
+### RETO 6
+Este ejercicio consistía en programar una máquina que está dañada donde se tiene que arreglar y unir sus comandos.
+Esto quiere decir que tanto el estudiante A como el estudiante B deben reparar de forma adecuada para que los comandos de la maquina
+funcione correctamente.
+Al juntar sus respectivas tareas de reparación, al subir en git presentan conflictos de Merge
+![captura](Imagenes/reto6-1.png)
+Así, los estudiantes realizan las labores de reparación 
+![captura](Imagenes/reto6-2.png)
+Y al finalizar, crean la solución combinada que da paso a un buen funcionamiento de la máquina.
+![captura](Imagenes/reto6-3.png)
+
 ---
-
-
-
-
 ---
 
 ## Preguntas Teóricas
